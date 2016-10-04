@@ -1,4 +1,3 @@
 flask
 gunicorn
-python-geoip
-python-geoip-geolite2
+pygeoip
