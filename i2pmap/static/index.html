@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title> i2pmap </title>
+    <script type="application/javascript" src="static/globe.js"></script>
+    <script type="application/javascript" src="static/three.min.js"></script>
+    <script type="application/javascript" src="static/i2pmap.js"></script>
+    <link rel="stylesheet" src="static/site.css"></link>
+  </head>
+  <body>
+    <noscript>
+      this site requires js and canvas to work 
+    </noscript>
+    <script>
+      var c = document.createElement("div");
+      c.setAttribute("class", "globe");
+      c.setAttribute("width", "720");
+      c.setAttribute("height", "480");
+      document.body.appendChild(c);
+      i2pmap_run(c);
+    </script>
+  </body>
+</html>

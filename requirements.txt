@@ -1,0 +1,5 @@
+matplotlib
+flask
+gunicorn
+python-geoip
+python-geoip-geolite2
