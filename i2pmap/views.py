@@ -1,5 +1,6 @@
 from . import app as flask_app
 import flask
+from werkzeug.utils import safe_join
 from . import netdb
 import os
 import fnmatch
@@ -7,13 +8,15 @@ import json
 
 app = flask_app.app
 
-netdbdir = os.path.join(os.environ["HOME"], '.i2pd', 'netDb')
+netdbdir = "/var/lib/i2pd/netDb"
 
 def stream_netdb_folder(fpath):
     for root, dirs, files in os.walk(fpath):
         for f in files:
             fname = os.path.join(root, f)
             e = netdb.Entry(fname)
+            if not e.valid:
+                continue
             d = e.dict()
             yield json.dumps(d)
             yield ','
@@ -31,6 +34,6 @@ def getnetdb():
 
 @app.route('/')
 def index():
-    filename = flask.safe_join(app.static_folder, 'index.html')
+    filename = safe_join(app.static_folder, 'index.html')
     with open(filename) as fd:
         return fd.read()
