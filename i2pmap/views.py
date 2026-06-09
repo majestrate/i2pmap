@@ -15,6 +15,8 @@ def stream_netdb_folder(fpath):
         for f in files:
             fname = os.path.join(root, f)
             e = netdb.Entry(fname)
+            if not e.valid:
+                continue
             d = e.dict()
             yield json.dumps(d)
             yield ','
