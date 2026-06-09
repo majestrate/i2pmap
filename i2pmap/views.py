@@ -8,7 +8,7 @@ import json
 
 app = flask_app.app
 
-netdbdir = os.path.join(os.environ["HOME"], '.i2pd', 'netDb')
+netdbdir = "/var/lib/i2pd/netDb"
 
 def stream_netdb_folder(fpath):
     for root, dirs, files in os.walk(fpath):
