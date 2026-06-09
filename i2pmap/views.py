@@ -1,5 +1,6 @@
 from . import app as flask_app
 import flask
+from werkzeug.utils import safe_join
 from . import netdb
 import os
 import fnmatch
@@ -31,6 +32,6 @@ def getnetdb():
 
 @app.route('/')
 def index():
-    filename = flask.safe_join(app.static_folder, 'index.html')
+    filename = safe_join(app.static_folder, 'index.html')
     with open(filename) as fd:
         return fd.read()
