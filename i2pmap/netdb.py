@@ -47,7 +47,7 @@ class Inspector:
                     entry_counter += 1
                     self.inspect(e)
                 else:
-                    self._log.warn('invalid entry in file {}'.format(fname))
+                    self._log.warning('invalid entry in file {}'.format(fname))
         self._log.info('read {} entries'.format(entry_counter))
 
 class Address:
